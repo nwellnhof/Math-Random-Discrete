@@ -38,15 +38,8 @@ sub new {
 
     my (@F, @A);
 
-    while (@small) {
-        my $i = pop(@small);
-
-        if (!@large) {
-            $A[$i] = $i;
-            $F[$i] = 1.0;
-            next;
-        }
-
+    while (@small and @large) {
+        my $i  = pop(@small);
         my $j  = $large[-1];
         $A[$i] = $j;
         $F[$i] = $weights[$i] / $avg;
@@ -57,7 +50,7 @@ sub new {
             if $weights[$j] <= $avg;
     }
 
-    for my $i (@large) {
+    for my $i (@small, @large) {
         $A[$i] = $i;
         $F[$i] = 1.0;
     }
@@ -85,7 +78,7 @@ sub rand {
 
     my $values = $self->{values};
 
-    return $values ? $self->{values}[$i] : $i;
+    return $values ? $values->[$i] : $i;
 }
 
 1;
