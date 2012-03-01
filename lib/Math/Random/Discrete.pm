@@ -70,7 +70,7 @@ sub rand {
     my $self = shift;
 
     my $F  = $self->{F};
-    my $r  = rand(@$F);
+    my $r  = CORE::rand(@$F);
     my $ri = int($r);  # integer part
     my $rf = $r - $ri; # fractional part
 
