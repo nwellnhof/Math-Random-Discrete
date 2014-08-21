@@ -1,5 +1,6 @@
 package Math::Random::Discrete;
 use strict;
+use warnings;
 
 # ABSTRACT: Discrete random variables with general distributions
 
