@@ -2,12 +2,19 @@ package Math::Random::Discrete;
 use strict;
 use warnings;
 
+use Carp qw(croak);
+
 # ABSTRACT: Discrete random variables with general distributions
 
 # This is an implementation of Walker's alias method.
 
 sub new {
     my ($class, $_weights, $values) = @_;
+
+    croak("No weights specified")
+        if !defined($_weights) || !@$_weights;
+    croak("Number of values must equal number of weights")
+        if defined($values) && @$values != @$_weights;
 
     my @weights = @$_weights;
 
