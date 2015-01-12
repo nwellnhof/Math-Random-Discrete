@@ -1,6 +1,7 @@
 package Math::Random::Discrete;
 use strict;
 use warnings;
+use Carp qw(croak);
 
 # ABSTRACT: Discrete random variables with general distributions
 
@@ -8,6 +9,9 @@ use warnings;
 
 sub new {
     my ($class, $_weights, $values) = @_;
+
+    croak "no weights specified" if !defined $_weights or !@$_weights;
+    croak "number of values must equal number of weights" if defined $values and @$values != @$_weights;
 
     my @weights = @$_weights;
 
