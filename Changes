@@ -1,5 +1,9 @@
 Revision history for Perl module Math::Random::Discrete
 
+1.02  2015-02-25
+    - Croak if caller supplies obviously invalid input.
+      Thanks to Jeremy Mates for the pull request.
+
 1.01  2014-08-21
     - Use warnings
     - Use CORE::rand to fix warning
