@@ -1,4 +1,5 @@
 package Math::Random::Discrete;
+
 use strict;
 use warnings;
 
